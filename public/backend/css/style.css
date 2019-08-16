@@ -1,0 +1,38 @@
+#list1{
+    width: 117%;
+    margin-left: -40px;
+    display: none;
+}
+#list1 li{
+    padding-left: 40px;
+    list-style: none;
+    margin-bottom: 5px;
+}
+#list1 li:hover{
+    background: #1a2226;
+    color: white;
+}
+#img_description{
+    width: 300px;
+}
+@media (max-width: 576px) {
+    #list1{
+        display: none;
+    }
+
+}
+#list_news{
+    width: 117%;
+    margin-left: -40px;
+    display: none;
+
+}
+#list_news li{
+    padding-left: 40px;
+    list-style: none;
+    margin-bottom: 5px;
+}
+#list_news li:hover{
+    background: #1a2226;
+    color: white;
+}
