@@ -12,8 +12,8 @@ class ProductCategory extends Model
     const STATUS_DISABLED = 0;
 
 
-    const UPDATE_AT = null;
-    public function PaginationBackend() {
+    const UPDATED_AT = null;
+    public function getAllPaginationBackend() {
         $product_category = ProductCategory::paginate(10);
         return $product_category;
     }

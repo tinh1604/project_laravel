@@ -1,9 +1,9 @@
 @extends('backend.layouts.main')
 @section('page_title', 'Thêm danh mục sản phẩm')
+@section('title', 'Thêm danh mục sản phẩm')
 @section('content')
     <!-- Main content -->
     <section class="content">
-        <h2>Thêm mới Danh mục sản phẩm</h2>
         <form method="POST" action="{{ url('/admin/product_category/store') }}" enctype="multipart/form-data">
             <input type="hidden" name="_token" id="csrf-token" value="{{ csrf_token() }}"/>
             <div class="form-group">

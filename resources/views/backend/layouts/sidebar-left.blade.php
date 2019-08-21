@@ -54,7 +54,7 @@
                 </a>
             </li>
             <ul id="list1">
-                <li> <a href="index.php?controller=product&action=index"> <i class="fas fa-chevron-circle-right"></i> Chi tiết sản phẩm</a></li>
+                <li> <a href="{{ url('/admin/product') }}"> <i class="fas fa-chevron-circle-right"></i> Chi tiết sản phẩm</a></li>
                 <li> <a href="{{ url('/admin/product_category') }}"><i class="fas fa-chevron-circle-right"></i> Danh mục sản phẩm</a></li>
             </ul>
         </ul>

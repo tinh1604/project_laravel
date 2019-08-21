@@ -1,5 +1,6 @@
 @extends('backend.layouts.main')
 @section('page_title', 'Danh mục sản phẩm')
+@section('title', 'Danh mục sản phẩm')
 @section('content')
     <!-- Main content -->
     <section class="content">
@@ -52,7 +53,7 @@
                                 <span class="fa fa-pencil"></span>
                             </a> &nbsp;
                             <a href="{{ url('admin/product_category/delete/' . $value['id']) }}"
-                               onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này hay không. Các bản ghi tin tức liên quan đến category này cũng sẽ bị xóa?');">
+                               onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục sản phẩm này hay không. Các sản phẩm thuộc danh  mục này cũng sẽ bị xóa?');">
                                 <span class="fa fa-trash"></span>
                             </a> &nbsp;
                         </td>

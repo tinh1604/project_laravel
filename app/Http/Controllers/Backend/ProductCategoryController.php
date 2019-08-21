@@ -12,7 +12,7 @@ class ProductCategoryController extends BackendController
 {
     public function index(){
         $ProductCategoryModel = new ProductCategory();
-        $product_category = $ProductCategoryModel->PaginationBackend();
+        $product_category = $ProductCategoryModel->getAllPaginationBackend();
         return view('backend/product_category/index',['ProductCategory' => $product_category]);
 
     }
@@ -23,10 +23,9 @@ class ProductCategoryController extends BackendController
 
     public function store(Request $request)
     {
-        //xử lý validate cho form
         $rules = [
-            'name' => ['required', "min:2", "unique:product_category", new CustomRule()],
-            'description' => ['required', new CustomRule()]
+            'name' => ['required', "min:2", "unique:product_category"],
+            'description' => ['required']
         ];
         $messages = [
             'name.required' => 'Name không được để trống',
@@ -72,8 +71,8 @@ class ProductCategoryController extends BackendController
         $ProductCategory = ProductCategory::find($id);
         //xử lý validate cho form
         $rules = [
-            'name' => ['required', "min:2", new CustomRule()],
-            'description' => ['required', new CustomRule()]
+            'name' => ['required', "min:2"],
+            'description' => ['required']
         ];
         $messages = [
             'name.required' => 'Name không được để trống',

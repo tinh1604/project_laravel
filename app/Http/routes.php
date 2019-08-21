@@ -28,20 +28,20 @@ Route::group(['prefix' => 'admin'], function() {
     //route delete category
     Route::get('product_category/delete/{id}', 'Backend\ProductCategoryController@delete');
 
-    //route liệt kê danh sách category
-    Route::get('news', 'Backend\NewsController@index');
-    //route thêm category
-    Route::get('news/create', 'Backend\NewsController@create');
-    //route xử lý submit form khi thêm mới category
-    Route::post('news/store', 'Backend\NewsController@store');
-    //route trang chi tiết category
-    Route::get('news/detail/{id}', 'Backend\NewsController@detail');
-    //route form edit category
-    Route::post('news/edit/{id}', 'Backend\NewsController@edit');
+    //route liệt kê danh sách sản phẩm
+    Route::get('product', 'Backend\ProductController@index');
+    //route thêm product
+    Route::get('product/create', 'Backend\ProductController@create');
+    //route xử lý submit form khi thêm mới product
+    Route::post('product/store', 'Backend\ProductController@store');
+    //route trang chi tiết product
+    Route::get('product/detail/{id}', 'Backend\ProductController@detail');
+    //route form edit product
+    Route::post('product/edit/{id}', 'Backend\ProductController@edit');
     //route xử lý submit form edit
-    Route::get('news/update/{id}', 'Backend\NewsController@update');
-    //route delete category
-    Route::get('news/delete/{id}', 'Backend\NewsController@delete');
+    Route::get('product/update/{id}', 'Backend\ProductController@update');
+    //route delete product
+    Route::get('product/delete/{id}', 'Backend\ProductController@delete');
 
     Route::any('login', 'Backend\AdminController@login');
 });

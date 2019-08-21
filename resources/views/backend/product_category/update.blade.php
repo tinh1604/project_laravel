@@ -5,7 +5,7 @@
     <section class="content">
         <h2>cập nhật danh mục sản phẩm #{{ $ProductCategory->id }}</h2>
         <form method="POST"
-              action="{{ url('/admin/category/edit/' . $ProductCategory->id) }}"
+              action="{{ url('/admin/product_category/edit/' . $ProductCategory->id) }}"
               enctype="multipart/form-data">
             <input type="hidden" name="_token" id="csrf-token" value="{{ csrf_token() }}"/>
             <div class="form-group">

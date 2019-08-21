@@ -47,7 +47,7 @@
                     </div>
                 @endif
                 <h1>
-                    Dashboard
+                    @yield('title')
                     <small>Control panel</small>
                 </h1>
 
