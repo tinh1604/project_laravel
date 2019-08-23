@@ -53,6 +53,8 @@ class ProductController extends BackendController
             $imgFileName = time().'-' . $img->getClientOriginalName();
             $img->move(public_path('uploads'), $imgFileName);
         }
+//        echo'<pre>';
+//        print_r($request->all());die;
         //lưu vào cơ sở dữ liệu, sử dụng Eloquent ORM
         $productModel = new Product();
         $productModel->name = $request->get('name');
@@ -140,12 +142,12 @@ class ProductController extends BackendController
 
     public function delete($id)
     {
-        $news = News::find($id);
-        if ($news->delete()) {
-            session()->put("success", "Xóa news $id thành công");
+        $product = Product::find($id);
+        if ($product->delete()) {
+            session()->put("success", "Xóa sản phẩm ID = $id thành công");
         } else {
-            session()->put('error', "Xóa news $id thất bại");
+            session()->put('error', "Xóa sản phẩm ID = $id thất bại");
         }
-        return redirect('admin/news');
+        return redirect('admin/product');
     }
 }

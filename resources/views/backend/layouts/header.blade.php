@@ -19,7 +19,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{ asset('backend/images/avatar.jpg') }}" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Nguyễn Thanh Tình</span>
+                        <span class="hidden-xs">{{ session()->get('admin.username') }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -27,18 +27,18 @@
                             <img src="{{ asset('backend/images/avatar.jpg') }}" class="img-circle" alt="User Image">
 
                             <p>
-                                Nguyễn Thanh Tình - Web Developer
-                                <small>Thành viên từ năm 2019</small>
+                                {{ session()->get('admin.username') }}
+                                <small>Tạo ngày {{ date('d-m-Y', strtotime(session()->get('admin.created_at'))) }}</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="index.php?controller=admin&action=detail&id="
+                                <a href=""
                                    class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="index.php?controller=admin&action=logout" class="btn btn-default btn-flat">Sign
+                                <a href="login" class="btn btn-default btn-flat">Sign
                                     out</a>
                             </div>
                         </li>

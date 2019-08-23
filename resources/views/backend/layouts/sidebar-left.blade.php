@@ -7,7 +7,7 @@
                 <img src="{{ asset('backend/images/avatar.jpg') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Nguyễn Thanh Tình</p>
+                <p>{{ session()->get('admin.username') }}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -16,7 +16,7 @@
             <li class="header">LAOYOUT ADMIN</li>
             <li>
                 <a href="{{ url('/admin/category') }}">
-                    <i class="fas fa-user-shield"></i> <span> Quản lý Admin</span>
+                    <i class="fa fa-user"></i> <span> Quản lý Admin</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>

@@ -44,7 +44,7 @@
             <div class="form-group">
                 <label>Giá</label>
                 <textarea name="price"
-                          class="form-control">{{ old('price') ? old('price') : $product->summary }}</textarea>
+                          class="form-control">{{ old('price') ? old('price') : $product->price }}</textarea>
             </div>
             <div class="form-group">
                 <label>Miêu tả</label>

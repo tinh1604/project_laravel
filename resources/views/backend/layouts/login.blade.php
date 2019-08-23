@@ -21,19 +21,10 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
-{{--nếu đăng nhập rồi mới cho hiển thị--}}
-{{--@if(session()->get('admin'))--}}
-{{--<div class="wrapper">--}}
-{{--HEADER--}}
-<!-- Left side column. contains the logo and sidebar -->
-{{--SIDEBAR LEFT--}}
-<!-- Content Wrapper. Contains page content -->
-{{--    <div class="content-wrapper">--}}
-        <!-- Main content -->
-        <section class="content">
-            <section class="content-header">
+        <section class="content" style="width: 30%"  >
+            <section class="content-header"  >
                 @if (session()->get('error'))
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-danger" role="alert" >
                         {{--nơi hiển thị thông báo lỗi nếu có--}}
                         {{--sau khi thông báo lỗi xong cần xóa session này đi, để tránh việc hiển thị lại sau mỗi lần--}}
                         {{--refresh trang--}}
@@ -50,14 +41,8 @@
                         @php(session()->forget('success'))
                     </div>
                 @endif
-{{--                <h1>--}}
-{{--                    Dashboard--}}
-{{--                    <small>Control panel</small>--}}
-{{--                </h1>--}}
-{{--                <ol class="breadcrumb">--}}
-{{--                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>--}}
-{{--                    <li class="active">Dashboard</li>--}}
-{{--                </ol>--}}
+
+
             </section>
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -70,13 +55,7 @@
             @endif
             @yield('content')
         </section>
-        <!-- /.content -->
-{{--    </div>--}}
 
-    <!-- /.content-wrapper -->
-{{--    @include('backend.layouts.footer')--}}
-    {{--@endif--}}
-{{--</div>--}}
 </body>
 </html>
 

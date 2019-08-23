@@ -22,53 +22,48 @@
 <body class="hold-transition skin-blue sidebar-mini">
 
 {{--nếu đăng nhập rồi mới cho hiển thị--}}
-{{--@if(session()->get('admin'))--}}
-<div class="wrapper">
-{{--HEADER--}}
-@include('backend.layouts.header')
-<!-- Left side column. contains the logo and sidebar -->
-{{--SIDEBAR LEFT--}}
-@include('backend.layouts.sidebar-left')
-<!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Main content -->
-        <section class="content">
-            <section class="content-header">
-                @if (session()->get('error'))
-                    <div class="alert alert-danger" role="alert">
-                        {{ session()->get('error') }}
-                        @php(session()->forget('error'))
-                    </div>
-                @endif
-                @if (session()->get('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session()->get('success') }}
-                        @php(session()->forget('success'))
-                    </div>
-                @endif
-                <h1>
-                    @yield('title')
-                    <small>Control panel</small>
-                </h1>
+@if(session()->get('admin'))
+    <div class="wrapper">
+    @include('backend.layouts.header')
+    @include('backend.layouts.sidebar-left')
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+                <section class="content-header">
+                    @if (session()->get('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session()->get('error') }}
+                            @php(session()->forget('error'))
+                        </div>
+                    @endif
+                    @if (session()->get('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session()->get('success') }}
+                            @php(session()->forget('success'))
+                        </div>
+                    @endif
+                    <h1>
+                        @yield('title')
+                        <small>Control panel</small>
+                    </h1>
 
+                </section>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @yield('content')
             </section>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            @yield('content')
-        </section>
-        <!-- /.content -->
+            <!-- /.content -->
+        </div>
+        @include('backend.layouts.footer')
+        @endif
     </div>
-    <!-- /.content-wrapper -->
-    @include('backend.layouts.footer')
-    {{--@endif--}}
-</div>
 </body>
 </html>
 

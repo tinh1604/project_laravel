@@ -49,7 +49,7 @@
                         <td>
                             {{ $value['price'] }}
                         </td>
-                        <td>{{ $value['description'] }}</td>
+                        <td>{!! $value['description'] !!}</td>
                         <td>
                             {{ date('d-m-Y H:i:s', strtotime($value['created_at']))}}
                         </td>
@@ -75,7 +75,7 @@
                                 <span class="fa fa-pencil"></span>
                             </a> &nbsp;
                             <a href="{{ url('admin/product/delete/' . $value['id']) }}"
-                               onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này hay không?');">
+                               onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này hay không?');">
                                 <span class="fa fa-trash"></span>
                             </a> &nbsp;
                         </td>
