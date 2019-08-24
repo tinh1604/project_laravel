@@ -1,38 +1,31 @@
 @extends('backend.layouts.main')
-@section('page_title', 'Danh sách sản phẩm')
-@section('title', 'Quản lý sản phẩm')
+@section('page_title', 'Quản lý Admin')
+@section('title', 'Quản lý Admin')
 @section('content')
     <!-- Main content -->
     <section class="content">
         <a class="btn btn-primary"
-           href="{{ url('admin/product/create') }}">
+           href="{{ url('admin/admins/create') }}">
             <span class="glyphicon glyphicon-plus"></span>
-            Thêm sản phẩm
+            Thêm tài khoản
         </a>
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>
-                <th>Tên sản phẩm</th>
-                <th>Tên tiếng Anh</th>
-                <th>Danh mục</th>
+                <th>Tên tài khoản</th>
+                <th>Quyền</th>
                 <th>Hình ảnh</th>
-                <th>Giá</th>
-                <th style="text-align: center">Miêu tả</th>
                 <th>Thời gian tạo</th>
-                <th>Trạng thái</th>
                 <th>Xem/sửa/xóa</th>
             </tr>
-            @if(!empty($product))
-                @foreach ($product as $value)
+            @if(!empty($admins))
+                @foreach ($admins as $value)
                     <tr>
                         <td>
                             {{ $value['id'] }}
                         </td>
                         <td>
-                            {{ $value['name'] }}
-                        </td>
-                        <td>
-                            {{ $value['english_name'] }}
+                            {{ $value['username'] }}
                         </td>
                         <td>
                             @if($value->product_category_Relation)
@@ -46,27 +39,11 @@
                                      width="100px"/>
                             @endif
                         </td>
-                        <td>
-                            {{ $value['price'] }}
-                        </td>
-                        <td>{!! $value['description'] !!}</td>
+
                         <td>
                             {{ date('d-m-Y H:i:s', strtotime($value['created_at']))}}
                         </td>
-                        <td>
-                            @php
-                                $statusText = '';
-                                switch ($value['highlight']) {
-                                    case 1:
-                                        $statusText = 'nổi bật';
-                                        break;
-                                    case 0:
-                                        $statusText = 'bình thường';
-                                        break;
-                                }
-                            @endphp
-                            {{ $statusText }}
-                        </td>
+
                         <td>
                             <a href="{{ url('admin/product/detail/' . $value['id']) }}">
                                 <span class="fa fa-eye"></span>
@@ -75,7 +52,7 @@
                                 <i class="fas fa-edit"></i>
                             </a> &nbsp;
                             <a href="{{ url('admin/product/delete/' . $value['id']) }}"
-                               onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này hay không?');">
+                               onclick="return confirm('Bạn có chắc chắn muốn tài khoản này hay không?');">
                                 <i class="fas fa-trash-alt"></i>
                             </a> &nbsp;
                         </td>
@@ -89,7 +66,7 @@
                 </tr>
             @endif
         </table>
-        {{ $product->links()  }}
+        {{ $admins->links()  }}
     </section>
     <!-- /.content -->
 @endsection()

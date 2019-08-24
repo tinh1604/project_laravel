@@ -9,7 +9,7 @@
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="{{ asset('backend/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('backend/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/AdminLTE.min.css') }}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->

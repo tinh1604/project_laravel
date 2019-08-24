@@ -15,13 +15,13 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">LAOYOUT ADMIN</li>
             <li>
-                <a href="{{ url('/admin/category') }}">
-                    <i class="fa fa-user"></i> <span> Quản lý Admin</span>
+                <a href="{{ url('/admin/index') }}">
+                    <i class="fas fa-user-shield"></i> <span> Quản lý Admin</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>
             <li >
-                <a href="index.php?controller=role&action=index">
+                <a href="roles">
                     <i class="fas fa-users-cog"></i> <span id="category"> Quản lý quyền</span>
                     <span class="pull-right-container"></span>
                 </a>
@@ -49,7 +49,7 @@
 
             <li id="menu_sp">
                 <a >
-                    <i class="fas fa-cash-register"></i> <span id="category"> Quản lý sản phẩm</span>
+                    <i class="fab fa-product-hunt"></i> <span id="category"> Quản lý sản phẩm</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>

@@ -14,6 +14,12 @@
             <b>Tên tiếng Anh: </b> {{ $product->english_name }}
         </p>
         <p>
+            <b>Danh mục: </b>
+            @if($product->product_category_Relation)
+                {{ $product->product_category_Relation->name }}
+            @endif
+        </p>
+        <p>
             <b>Hình ảnh: </b> <br/>
             @if(!empty($product->img))
                 <img width="300" src="{{ asset('/uploads/' . $product->img) }}"/>
@@ -23,7 +29,7 @@
             <b>Giá: </b> {{ $product->price }}
         </p>
         <p>
-            <b>Miêu tả: </b> <br/> {{ $product['description'] }}
+            <b>Miêu tả: </b> <br/> {!! $product['description'] !!}
         </p>
         <p>
             <b>Thời gian tạo: </b>

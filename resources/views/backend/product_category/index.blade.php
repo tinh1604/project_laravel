@@ -28,7 +28,7 @@
                             {{ $value['name'] }}
                         </td>
                         <td>
-                            {{ $value['description'] }}
+                            {!! $value['description']  !!}
                         </td>
                         <td>
                             @php
@@ -50,11 +50,11 @@
                                 <span class="fa fa-eye"></span>
                             </a> &nbsp;
                             <a href="{{ url('admin/product_category/update/' . $value['id']) }}">
-                                <span class="fa fa-pencil"></span>
+                                <i class="fas fa-edit"></i>
                             </a> &nbsp;
                             <a href="{{ url('admin/product_category/delete/' . $value['id']) }}"
                                onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục sản phẩm này hay không. Các sản phẩm thuộc danh  mục này cũng sẽ bị xóa?');">
-                                <span class="fa fa-trash"></span>
+                                <i class="fas fa-trash-alt"></i>
                             </a> &nbsp;
                         </td>
                     </tr>

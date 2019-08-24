@@ -38,8 +38,8 @@ class ProductController extends BackendController
             'img' => ['required','image', 'max:2024']
         ];
         $messages = [
-            'name.required' => 'Title không được để trống',
-            'name.min' => 'Title phải nhập ít nhất 2 ký tự',
+            'name.required' => 'Tên không được để trống',
+            'name.min' => 'Tên phải nhập ít nhất 2 ký tự',
             'price.required' => 'Giá không được để trống',
             'description.required' => 'Content không được để trống',
             'img.required' => 'chưa chọn file upload',
@@ -104,7 +104,7 @@ class ProductController extends BackendController
             'img' => ['image', 'max:2024']
         ];
         $messages = [
-            'name.required' => 'Title không được để trống',
+            'name.required' => 'Tên không được để trống',
             'name.min' => 'Title phải nhập ít nhất 2 ký tự',
             'price.required' => 'Giá không được để trống',
             'description.required' => 'Content không được để trống',

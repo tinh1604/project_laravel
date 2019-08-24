@@ -29,8 +29,8 @@ class CategoryController extends BackendController
     {
         //xử lý validate cho form
         $rules = [
-          'name' => ['required', "min:2", "unique:categories", new CustomRule()],
-          'description' => ['required', new CustomRule()],
+          'name' => ['required', "min:2", "unique:categories"],
+          'description' => ['required'],
           'avatar' => ['image', 'max:2024']
         ];
         $messages = [

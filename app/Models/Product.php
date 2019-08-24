@@ -20,7 +20,7 @@ class Product extends Model
     {
         //join sử dụng cơ chế Eloquent ORM
         $product = Product::with('product_category_Relation')
-            ->orderBy('id', 'ASC')
+            ->orderBy('id', 'DESC')
             ->paginate(10);
 
         return $product;
@@ -28,10 +28,10 @@ class Product extends Model
 
 
     public static function getByIdRelation($id) {
-        $news = Product::with('product_category_Relation')
+        $product = Product::with('product_category_Relation')
             ->find($id);
 
-        return $news;
+        return $product;
     }
 
     /**

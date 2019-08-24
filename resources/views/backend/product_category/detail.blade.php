@@ -11,14 +11,14 @@
             <b>ID:</b> {{ $ProductCategory->id }}
         </p>
         <p>
-            <b>Name:</b>  {{ $ProductCategory->name }}
+            <b>Tên:</b>  {{ $ProductCategory->name }}
         </p>
 
         <p>
-            <b>Description:</b>  {{ $ProductCategory->description }}
+            <b>Miêu tả:</b>  {{ $ProductCategory->description }}
         </p>
         <p>
-            <b>Created at:</b>
+            <b>Thời gian tạo:</b>
             {{ date('d-m-Y H:i:s', strtotime($ProductCategory->created_at)) }}
         </p>
         <a href="{{ url('/admin/category') }}" class="btn btn-primary">
