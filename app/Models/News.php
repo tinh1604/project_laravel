@@ -24,48 +24,27 @@ class News extends Model
    */
     public function getAllPaginationBackend()
     {
-//        $news = News::with(['categoriesRelation' => function($category) {
-//          $category->select(['id', 'name']);
-//        }] )
-//      ->orderBy('created_at', 'DESC')
-//          ->get();
 
       //join sử dụng cơ chế Eloquent ORM
       $news = News::with('categoriesRelation')
-        ->with('adminsRelation')
         ->orderBy('created_at', 'DESC')
-        ->paginate(1);
+        ->paginate(5);
 
-
-        //join sử dụng query builder
-//        $news = DB::table("news")
-//          ->join("categories", "news.category_id", "=", "categories.id")
-//          ->paginate(1);
         return $news;
     }
 
 
     public static function getByIdRelation($id) {
       $news = News::with('categoriesRelation')
-        ->with('adminsRelation')
         ->find($id);
 
       return $news;
     }
 
-  /**
-   * Tạo relation 1 - 1 với bảng category
-   * @return \Illuminate\Database\Eloquent\Relations\HasOne
-   */
+
     public function categoriesRelation() {
       return $this->hasOne(Category::class, "id", "category_id");
     }
 
-  /**
-   * Tạo relation 1 - 1 với bảng admin
-   * @return \Illuminate\Database\Eloquent\Relations\HasOne
-   */
-  public function adminsRelation() {
-    return $this->hasOne(Admin::class, "id", "admin_id");
-  }
+
 }

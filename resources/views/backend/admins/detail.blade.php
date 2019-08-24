@@ -19,7 +19,7 @@
         <p>
             <b>Ảnh đại diện: </b> <br/>
             @if(!empty($admin->img))
-                <img width="300" src="{{ asset('/uploads/' . $admin->img) }}"/>
+                <img width="150" src="{{ asset('/uploads/' . $admin->img) }}"/>
             @endif
         </p>
         <p>
@@ -27,7 +27,7 @@
             {{ date('H:i:s d-m-Y', strtotime($admin->created_at)) }}
         </p>
 
-        <a href="{{ url('/admin/product') }}" class="btn btn-primary">
+        <a href="{{ url('/admin/index') }}" class="btn btn-primary">
             Quay lại
         </a>
     </section>

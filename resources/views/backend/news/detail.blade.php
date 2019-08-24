@@ -1,24 +1,41 @@
 @extends('backend.layouts.main')
+@section('page_title','Detail')
+@section('title')
+    Chi tiết news # {{ $new->id }}
+@endsection()
 @section('content')
     <!-- Main content -->
     <section class="content">
-        <h1>
-            Chi tiết news # {{ $news->id }}
-        </h1>
+
         <p>
             ID: {{ $news->id }}
         </p>
         <p>
-            Name: {{ $news->name }}
+            Tên bài: {{ $new['title'] }}
         </p>
         <p>
-            Avatar:
-            @if(!empty($news->avatar))
+            Danh mục:
+            @if($news->categoriesRelation)
+                {{ $news->categoriesRelation->name }}
+            @endif
+        </p>
+        <p>
+            Ảnh đại diện:
+            @if(!empty($new->avatar))
                 <img width="80" src="{{ asset('/uploads/' . $news->avatar) }}" />
             @endif
         </p>
         <p>
-            Description: {{ $news->description }}
+            Giới thiệu: {!! $news['summary'] !!}
+        </p>
+        <p>
+            Nội dung: {!! $news['content'] !!}
+        </p>
+        <p>
+            Số comment: {{ $news['comment_total'] }}
+        </p>
+        <p>
+            Tác giả: {{ $news['author'] }}
         </p>
         <p>
             Created at:

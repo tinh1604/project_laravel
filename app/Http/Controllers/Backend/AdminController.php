@@ -73,24 +73,23 @@ class AdminController extends BackendController
     {
         $rules = [
             'username' => ['required', "min:4"],
-            'password' => ['required'],
-            'repassword' => ['required'],
+            'password' => ['required','min:8'],
+            'repassword' => ['required','same:password'],
             'img' => ['required','image', 'max:2024']
         ];
         $messages = [
             'username.required' => 'Username không được để trống',
             'username.min' => 'Username phải nhập ít nhất 4 ký tự',
             'password.required' => 'Mật khẩu không được để trống',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 kí tự',
             'repassword.required' => 'Chưa nhập lại mật khẩu',
+            'repassword.same' => 'Mật khẩu nhập lại chưa đúng',
             'img.required' => 'chưa chọn ảnh đại diện',
             'img.image' => 'Phải upload định dạng ảnh',
             'img.max' => 'Ảnh đại diện dung lượng không được > 2Mb'
         ];
         $this->validate($request, $rules, $messages);
-        if($request->repassword != $request->password){
-            session()->put('error', 'Mật khẩu nhập lại không chính xác');
-        }
-        else{
+
             $imgFileName = '';
             if (!empty($request->img)) {
                 $img = $request->img;
@@ -110,15 +109,15 @@ class AdminController extends BackendController
             } else {
                 session()->put('error', 'Thêm tài khoản thất bại');
             }
-            return redirect('/admin/admins');
-        }
+            return redirect('/admin/index');
+
     }
 
     public function detail($id)
     {
         $admin = Admin::getByIdRelation($id);
 
-        return view('backend.product.detail', [
+        return view('backend.admins.detail', [
             'admin' => $admin
         ]);
     }
@@ -139,24 +138,21 @@ class AdminController extends BackendController
         $admin = Admin::getByIdRelation($id);
         $rules = [
             'username' => ['required', "min:4"],
-            'password' => ['required'],
-            'repassword' => ['required'],
-            'img' => ['required','image', 'max:2024']
+            'password' => ['required','min:8'],
+            'repassword' => ['required','same:password'],
+            'img' => ['image', 'max:2024']
         ];
         $messages = [
             'username.required' => 'Username không được để trống',
             'username.min' => 'Username phải nhập ít nhất 4 ký tự',
             'password.required' => 'Mật khẩu không được để trống',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 kí tự',
             'repassword.required' => 'Chưa nhập lại mật khẩu',
-            'img.required' => 'chưa chọn ảnh đại diện',
+            'repassword.same' => 'Mật khẩu nhập lại chưa đúng',
             'img.image' => 'Phải upload định dạng ảnh',
             'img.max' => 'Ảnh đại diện dung lượng không được > 2Mb'
         ];
         $this->validate($request, $rules, $messages);
-        if($request->repassword != $request->password){
-            session()->put('error', 'Mật khẩu nhập lại không chính xác');
-        }
-        else{
             $imgFileName = $admin->img;
 
             if (!empty($request->img)) {
@@ -180,8 +176,8 @@ class AdminController extends BackendController
                 session()->put('error', 'Update tài khoản thất bại');
             }
 
-            return redirect('/admin/admins');
-        }
+            return redirect('/admin/index');
+
 
     }
 
@@ -193,6 +189,6 @@ class AdminController extends BackendController
         } else {
             session()->put('error', "Xóa tài khoản id = $id thất bại");
         }
-        return redirect('admin/admins');
+        return redirect('admin/index');
     }
 }

@@ -1,9 +1,11 @@
 @extends('backend.layouts.main')
 @section('page_title', 'Create')
+@section('title')
+    Thêm mới news
+@endsection()
 @section('content')
     <!-- Main content -->
     <section class="content">
-        <h1>Thêm mới news</h1>
         <form method="POST" action="{{ url('/admin/news/store') }}" enctype="multipart/form-data">
             <input type="hidden" name="_token" id="csrf-token" value="{{ csrf_token() }}"/>
             <div class="form-group">
@@ -44,12 +46,8 @@
                 <input type="number" class="form-control" name="comment_total" value="{{ old('comment_total') }}" min="0" />
             </div>
             <div class="form-group">
-                <label>Like_total</label>
-                <input type="number" class="form-control" name="like_total" value="{{ old('like_total') }}" min="0" />
-            </div>
-            <div class="form-group">
-                <label>View</label>
-                <input type="number" class="form-control" name="view" value="{{ old('view') }}" min="0" />
+                <label>Auth</label>
+                <input type="text" class="form-control" name="auth" value="{{ old('auth') }}" />
             </div>
             <div class="form-group">
                 @php
@@ -68,11 +66,11 @@
                 <select name="status" class="form-control">
                     <option
                             {{ $selectedStatusEnabled }} value="{{ \App\Models\News::STATUS_ENABLED }}">
-                        Enabled
+                        Tin nổi bật
                     </option>
                     <option
                             {{ $selectedStatusDisabled }} value="{{ \App\Models\News::STATUS_DISABLED }}">
-                        Disabled
+                        Tin thường
                     </option>
                 </select>
             </div>

@@ -14,16 +14,11 @@
                        class="form-control"/>
             </div>
             <div class="form-group">
-                <label>Title</label>
-                <input type="text" name="english_name" value="{{ old('english_name') ? old('english_name') : $product->english_name }}"
-                       class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label>Danh mục sản phẩm</label>
-                <select name="product_category_id" class="form-control">
-                    @foreach($product_category as $value)
+                <label>Chọn quyền</label>
+                <select name="role_id" class="form-control">
+                    @foreach($roles as $value)
                         @php
-                            $selected = old('product_category_id') == $admin->product_category_Relation->id ? "selected=true" : null;
+                            $selected = old('role_id') == $admin->role_Relation->id ? "selected=true" : null;
                         @endphp
                         <option value="{{ $value->id }}" {{ $selected }}>
                             {{ $value->name }}
@@ -31,31 +26,30 @@
                     @endforeach
                 </select>
             </div>
+
             <div class="form-group">
-                <label>
-                    Ảnh sản phẩm
-                </label>
-                <input type="file" name="avatar" class="form-control">
+                <label>Mật khẩu</label>
+                <input type="password" name="password" value="{{ old('password') }}"
+                       class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>Nhập lại mật khẩu</label>
+                <input type="password" name="repassword" value="{{ old('repassword') }}"
+                       class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>Ảnh đại diện</label>
+                <input type="file" name="img" class="form-control">
                 @if(!empty($admin->img))
                     <img src="{{ asset('uploads/' . $admin->img) }}"
                          width="80"/>
                 @endif
             </div>
-            <div class="form-group">
-                <label>Giá</label>
-                <textarea name="price"
-                          class="form-control">{{ old('price') ? old('price') : $admin->price }}</textarea>
-            </div>
-            <div class="form-group">
-                <label>Miêu tả</label>
-                <textarea name="description" class="form-control"
-                          id="category-description">{{ old('description') ? old('description') : $admin->description }}</textarea>
-            </div>
 
             <div class="form-group">
                 <input type="submit" name="submit"
                        class="btn btn-success" value="Lưu"/>
-                <a href="{{ url('admin/admins') }}"
+                <a href="{{ url('admin/index') }}"
                    class="btn btn-secondary">Hủy</a>
             </div>
         </form>

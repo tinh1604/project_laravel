@@ -28,8 +28,8 @@
                             {{ $value['username'] }}
                         </td>
                         <td>
-                            @if($value->product_category_Relation)
-                                {{ $value->product_category_Relation->name }}
+                            @if($value->role_Relation)
+                                {{ $value->role_Relation->name }}
                             @endif
                         </td>
 
@@ -45,13 +45,13 @@
                         </td>
 
                         <td>
-                            <a href="{{ url('admin/product/detail/' . $value['id']) }}">
+                            <a href="{{ url('admin/admins/detail/' . $value['id']) }}">
                                 <span class="fa fa-eye"></span>
                             </a> &nbsp;
-                            <a href="{{ url('admin/product/update/' . $value['id']) }}">
+                            <a href="{{ url('admin/admins/update/' . $value['id']) }}">
                                 <i class="fas fa-edit"></i>
                             </a> &nbsp;
-                            <a href="{{ url('admin/product/delete/' . $value['id']) }}"
+                            <a href="{{ url('admin/admins/delete/' . $value['id']) }}"
                                onclick="return confirm('Bạn có chắc chắn muốn tài khoản này hay không?');">
                                 <i class="fas fa-trash-alt"></i>
                             </a> &nbsp;

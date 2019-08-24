@@ -10,82 +10,77 @@
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>
-                <th>Title</th>
-                <th>Category Name</th>
-                <th>Người tạo</th>
-                <th>Avatar</th>
-                <th>Summary</th>
-                <th>Comment total</th>
-                <th>Like total</th>
-                <th>View</th>
-                <th>Status</th>
-                <th>Created_at</th>
-                <th>Ation</th>
+                <th>Tên bài</th>
+                <th>Danh mục</th>
+                <th>Ảnh đại diện</th>
+                <th>Giới thiệu</th>
+                <th>Nội dung</th>
+                <th>Số comment</th>
+                <th>Tác giả</th>
+                <th>Trạng thái</th>
+                <th>Thời gian tạo</th>
+                <th>Xem/sửa/xóa</th>
             </tr>
             @if(!empty($news))
-                @foreach ($news as $new)
+                @foreach ($news as $value)
                     <tr>
                         <td>
-                            {{ $new['id'] }}
+                            {{ $value['id'] }}
                         </td>
                         <td>
-                            {{ $new['title'] }}
+                            {{ $value['title'] }}
                         </td>
                         <td>
-                            @if($new->categoriesRelation)
-                                {{ $new->categoriesRelation->name }}
+                            @if($value->categoriesRelation)
+                                {{ $value->categoriesRelation->name }}
                             @endif
                         </td>
                         <td>
-                            @if($new->adminsRelation)
-                                {{ $new->adminsRelation->username }}
-                            @endif
-                        </td>
-                        <td>
-                            @if(!empty($new['avatar']))
-                                <img src="{{ asset('uploads/' . $new['avatar']) }}"
+                            @if(!empty($value['avatar']))
+                                <img src="{{ asset('uploads/' . $value['avatar']) }}"
                                      width="80px"/>
                             @endif
                         </td>
                         <td>
-                            {{ $new['summary'] }}
+                            {{ $value['summary'] }}
                         </td>
                         <td>
-                            {{ $new['comment_total'] }}
+                            {{ $value['content'] }}
                         </td>
                         <td>
-                            {{ $new['like_total'] }}
+                            {{ $value['comment_total'] }}
                         </td>
                         <td>
-                            {{ $new['view'] }}
+                            {{ $value['author'] }}
                         </td>
+
                         <td>
                             @php
                                 $statusText = '';
-                                switch ($new['status']) {
+                                switch ($value['status']) {
                                     case \App\Models\News::STATUS_ENABLED:
-                                        $statusText = 'Active';
+                                        $statusText = 'Tin nổi bật';
                                         break;
                                     case \App\Models\News::STATUS_DISABLED:
-                                        $statusText = 'Disabled';
+                                        $statusText = 'Tin thường';
                                         break;
                                 }
                             @endphp
                             {{ $statusText }}
                         </td>
                         <td>
-                            {{ date('d-m-Y H:i:s', strtotime($new['created_at']))}}
+                            {{ date('d-m-Y H:i:s', strtotime($value['created_at']))}}
                         </td>
                         <td>
-                            <a href="{{ url('admin/news/detail/' . $new['id']) }}">
+                            <a href="{{ url('admin/news/detail/' . $value['id']) }}">
                                 <span class="fa fa-eye"></span>
                             </a> &nbsp;
-                            <a href="{{ url('admin/news/update/' . $new['id']) }}">
-                                <span class="fa fa-pencil"></span>
+                            <a href="{{ url('admin/news/update/' . $value['id']) }}">
+                                <i class="fas fa-edit"></i>
                             </a> &nbsp;
-                            <a href="{{ url('admin/news/delete/' . $new['id']) }}"
+                            <a href="{{ url('admin/news/delete/' . $value['id']) }}"
                                onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này hay không?');">
-                                <span class="fa fa-trash"></span>
+                                <i class="fas fa-trash-alt"></i>
                             </a> &nbsp;
                         </td>
                     </tr>

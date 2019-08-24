@@ -1,5 +1,8 @@
 @extends('backend.layouts.main')
-@section('page_title', 'Create')
+@section('page_title', 'Update')
+@section('title')
+    Cập nhật news # {{ $news->id }}
+@endsection()
 @section('content')
     <!-- Main content -->
     <section class="content">

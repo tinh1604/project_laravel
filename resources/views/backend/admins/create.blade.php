@@ -42,7 +42,7 @@
             <div class="form-group">
                 <input type="submit" name="submit"
                        class="btn btn-success" value="Lưu"/>
-                <a href="{{ url('admin/admins') }}"
+                <a href="{{ url('admin/index') }}"
                    class="btn btn-secondary">Hủy</a>
             </div>
         </form>
