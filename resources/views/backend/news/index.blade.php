@@ -1,4 +1,8 @@
 @extends('backend.layouts.main')
+@section('page_content','Quản lý tin tức')
+@section('title')
+    Quản lý tin tức
+@endsection()
 @section('content')
     <!-- Main content -->
     <section class="content">
@@ -13,9 +17,9 @@
                 <th>Tên bài</th>
                 <th>Danh mục</th>
                 <th>Ảnh đại diện</th>
-                <th>Giới thiệu</th>
+                <th>Tóm lược</th>
                 <th>Nội dung</th>
-                <th>Số comment</th>
+                <th>Lượt comment</th>
                 <th>Tác giả</th>
                 <th>Trạng thái</th>
                 <th>Thời gian tạo</th>
@@ -45,7 +49,7 @@
                             {{ $value['summary'] }}
                         </td>
                         <td>
-                            {{ $value['content'] }}
+                            {!! $value['content']  !!}
                         </td>
                         <td>
                             {{ $value['comment_total'] }}
@@ -79,7 +83,7 @@
                                 <i class="fas fa-edit"></i>
                             </a> &nbsp;
                             <a href="{{ url('admin/news/delete/' . $value['id']) }}"
-                               onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này hay không?');">
+                               onclick="return confirm('Bạn có chắc chắn muốn xóa tin tức này không?');">
                                 <i class="fas fa-trash-alt"></i>
                             </a> &nbsp;
                         </td>

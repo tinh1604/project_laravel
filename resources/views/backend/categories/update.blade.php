@@ -1,5 +1,8 @@
 @extends('backend.layouts.main')
-@section('page_title', 'Update')
+@section('page_content','Cập nhật danh mục tin')
+@section('title')
+    Cập nhật danh mục id = {{ $category->id }}
+@endsection()
 @section('content')
     <!-- Main content -->
     <section class="content">
@@ -9,24 +12,14 @@
               enctype="multipart/form-data">
             <input type="hidden" name="_token" id="csrf-token" value="{{ csrf_token() }}"/>
             <div class="form-group">
-                <label>Name</label>
+                <label>Tên</label>
                 <input type="text" name="name"
                        value="{{ old('name') ? old('name') : $category->name}}"
                        class="form-control"/>
             </div>
+
             <div class="form-group">
-                <label>
-                    Upload ảnh đại diện
-                    (File dạng ảnh, dung lượng upload không vượt quá 2Mb)
-                </label>
-                <input type="file" name="avatar" class="form-control">
-                @if(!empty($category->avatar))
-                    <img src="{{ asset('uploads/' . $category->avatar) }}"
-                    width="80" />
-                @endif
-            </div>
-            <div class="form-group">
-                <label>Description</label>
+                <label>Miêu tả</label>
                 <textarea id='category-description' name="description"
                           class="form-control">
                  {{ old('description') ? old('description') :
@@ -47,7 +40,7 @@
                                 break;
                         }
                 @endphp
-                <label>Status</label>
+                <label>Trạng thái</label>
                 <select name="status" class="form-control">
                     <option
                             {{ $selectedStatusEnabled }} value="{{ \App\Models\Category::STATUS_ENABLED }}">

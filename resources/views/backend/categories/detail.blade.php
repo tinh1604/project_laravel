@@ -1,27 +1,22 @@
 @extends('backend.layouts.main')
+@section('page_content','Chi tiết tin')
+@section('title')
+    Chi tiết category # {{ $category->id }}
+@endsection()
 @section('content')
     <!-- Main content -->
     <section class="content">
-        <h1>
-            Chi tiết category # {{ $category->id }}
-        </h1>
         <p>
-            ID: {{ $category->id }}
+            <b>ID:</b> {{ $category->id }}
         </p>
         <p>
-            Name: {{ $category->name }}
+            <b>Tên:</b> {{ $category->name }}
         </p>
         <p>
-            Avatar:
-            @if(!empty($category->avatar))
-                <img width="80" src="{{ asset('/uploads/' . $category->avatar) }}" />
-            @endif
+            <b>Miêu tả:</b> {!! $category->description !!}
         </p>
         <p>
-            Description: {{ $category->description }}
-        </p>
-        <p>
-            Created at:
+            <b>Thời gian tạo:</b>
             {{ date('d-m-Y H:i:s', strtotime($category->created_at)) }}
         </p>
         <a href="{{ url('/admin/category') }}" class="btn btn-primary">

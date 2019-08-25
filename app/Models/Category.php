@@ -17,7 +17,10 @@ class Category extends Model
 
     public function getAllPaginationBackend()
     {
-        $categories = Category::paginate(1);
+        $categories = Category::
+            orderBy('id', 'DESC')
+            ->paginate(10);
+
 
         return $categories;
     }

@@ -1,21 +1,20 @@
 @extends('backend.layouts.main')
-@section('page_title', 'Update')
+@section('page_title', 'cập nhật tin')
 @section('title')
-    Cập nhật news # {{ $news->id }}
+    Cập nhật tin id = {{ $news->id }}
 @endsection()
 @section('content')
     <!-- Main content -->
     <section class="content">
-        <h1>Update news {{ $news->id }}</h1>
         <form method="POST" action="{{ url('/admin/news/edit/' . $news->id) }}" enctype="multipart/form-data">
             <input type="hidden" name="_token" id="csrf-token" value="{{ csrf_token() }}"/>
             <div class="form-group">
-                <label>Title</label>
+                <label>Tên</label>
                 <input type="text" name="title" value="{{ old('title') ? old('title') : $news->title }}"
                        class="form-control"/>
             </div>
             <div class="form-group">
-                <label>Category</label>
+                <label>Danh mục</label>
                 <select name="category_id" class="form-control">
                     @foreach($categories as $category)
                         @php
@@ -29,8 +28,7 @@
             </div>
             <div class="form-group">
                 <label>
-                    Upload ảnh đại diện
-                    (File dạng ảnh, dung lượng upload không vượt quá 2Mb)
+                    Ảnh
                 </label>
                 <input type="file" name="avatar" class="form-control">
                 @if(!empty($news->avatar))
@@ -39,31 +37,27 @@
                 @endif
             </div>
             <div class="form-group">
-                <label>Summary</label>
+                <label>Tóm lược</label>
                 <textarea name="summary"
                           class="form-control">{{ old('summary') ? old('summary') : $news->summary }}</textarea>
             </div>
             <div class="form-group">
-                <label>Content</label>
+                <label>Nội dung</label>
                 <textarea name="content" class="form-control"
                           id="category-description">{{ old('content') ? old('content') : $news->content }}</textarea>
             </div>
             <div class="form-group">
-                <label>Comment_total</label>
+                <label>Lượt comment</label>
                 <input type="number" class="form-control" name="comment_total"
                        value="{{ old('comment_total') ? old('comment_total') : $news->comment_total }}"
                        min="0"/>
             </div>
             <div class="form-group">
-                <label>Like_total</label>
+                <label>Tác giả</label>
                 <input type="number" class="form-control" name="like_total"
                        value="{{ old('like_total') ? old('like_total') : $news->like_total }}" min="0"/>
             </div>
-            <div class="form-group">
-                <label>View</label>
-                <input type="number" class="form-control" name="view"
-                       value="{{ old('view') ? old('view') : $news->view }}" min="0"/>
-            </div>
+
             <div class="form-group">
                 @php
                     $selectedStatusEnabled = '';
@@ -78,7 +72,7 @@
                                 break;
                         }
                 @endphp
-                <label>Status</label>
+                <label>Trạng thái</label>
                 <select name="status" class="form-control">
                     <option
                             {{ $selectedStatusEnabled }} value="{{ \App\Models\News::STATUS_ENABLED }}">

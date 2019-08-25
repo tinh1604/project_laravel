@@ -1,7 +1,7 @@
 @extends('backend.layouts.main')
-@section('page_title','Detail')
+@section('page_title','Chi tiết tin tức')
 @section('title')
-    Chi tiết news # {{ $new->id }}
+    Chi tiết tin tức id = {{ $news->id }}
 @endsection()
 @section('content')
     <!-- Main content -->
@@ -11,38 +11,38 @@
             ID: {{ $news->id }}
         </p>
         <p>
-            Tên bài: {{ $new['title'] }}
+            <b>Tên bài:</b> {{ $news['title'] }}
         </p>
         <p>
-            Danh mục:
+            <b>Danh mục:</b>
             @if($news->categoriesRelation)
                 {{ $news->categoriesRelation->name }}
             @endif
         </p>
         <p>
-            Ảnh đại diện:
-            @if(!empty($new->avatar))
+            <b>Ảnh đại diện:</b>
+            @if(!empty($news->avatar))
                 <img width="80" src="{{ asset('/uploads/' . $news->avatar) }}" />
             @endif
         </p>
         <p>
-            Giới thiệu: {!! $news['summary'] !!}
+            <b>Tóm lược:</b> {!! $news['summary'] !!}
         </p>
         <p>
-            Nội dung: {!! $news['content'] !!}
+            <b>Nội dung:</b> {!! $news['content'] !!}
         </p>
         <p>
-            Số comment: {{ $news['comment_total'] }}
+            <b>Lượt comment:</b> {{ $news['comment_total'] }}
         </p>
         <p>
-            Tác giả: {{ $news['author'] }}
+            <b>Tác giả:</b> {{ $news['author'] }}
         </p>
         <p>
-            Created at:
+            <b>Thời gian tạo</b>
             {{ date('d-m-Y H:i:s', strtotime($news->created_at)) }}
         </p>
         <a href="{{ url('/admin/news') }}" class="btn btn-primary">
-            Back
+            Quay lại
         </a>
     </section>
     <!-- /.content -->

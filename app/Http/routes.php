@@ -12,7 +12,7 @@
 */
 
 //backend
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
     //route liệt kê danh sách product_category
     Route::get('product_category', 'Backend\ProductCategoryController@index');
     //route thêm category
@@ -73,10 +73,40 @@ Route::group(['prefix' => 'admin'], function() {
     //route delete product
     Route::get('admins/delete/{id}', 'Backend\AdminController@delete');
 
+    //route liệt kê danh mục tin tức
+    Route::get('category', 'Backend\CategoryController@index');
+//route thêm danh mục tin tức
+    Route::get('category/create', 'Backend\CategoryController@create');
+//route xử lý submit form khi thêm mới danh mục tin tức
+    Route::post('category/store', 'Backend\CategoryController@store');
+//route trang chi tiết danh mục tin tức
+    Route::get('category/detail/{id}', 'Backend\CategoryController@detail');
+//route form edit news
+    Route::post('category/edit/{id}', 'Backend\CategoryController@edit');
+//route xử lý submit form edit
+    Route::get('category/update/{id}', 'Backend\CategoryController@update');
+//route delete category
+    Route::get('category/delete/{id}', 'Backend\CategoryController@delete');
+
+//route liệt kê danh sách news
+    Route::get('news', 'Backend\NewsController@index');
+//route thêm news
+    Route::get('news/create', 'Backend\NewsController@create');
+//route xử lý submit form khi thêm mới news
+    Route::post('news/store', 'Backend\NewsController@store');
+//route trang chi tiết news
+    Route::get('news/detail/{id}', 'Backend\NewsController@detail');
+//route form edit news
+    Route::post('news/edit/{id}', 'Backend\NewsController@edit');
+//route xử lý submit form edit
+    Route::get('news/update/{id}', 'Backend\NewsController@update');
+//route delete category
+    Route::get('news/delete/{id}', 'Backend\NewsController@delete');
+
     Route::any('login', 'Backend\AdminController@login');
     Route::any('logout', 'Backend\AdminController@logout');
-});
 
+});
 
 
 //frontend

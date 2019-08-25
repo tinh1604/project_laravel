@@ -1,4 +1,8 @@
 @extends('backend.layouts.main')
+@section('page_content','Danh mục tin tức')
+@section('title')
+    Quản lý danh mục tin tức
+@endsection()
 @section('content')
     <!-- Main content -->
     <section class="content">
@@ -10,11 +14,11 @@
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Avatar</th>
-                <th>Status</th>
-                <th>Created_at</th>
-                <th>Ation</th>
+                <th>Tên</th>
+                <th>Miêu tả</th>
+                <th>Trạng thái</th>
+                <th>Thời gian tạo</th>
+                <th>Xem/sửa/xóa</th>
             </tr>
             @if(!empty($categories))
                 @foreach ($categories as $category)
@@ -26,11 +30,9 @@
                             {{ $category['name'] }}
                         </td>
                         <td>
-                            @if(!empty($category['avatar']))
-                                <img src="{{ asset('uploads/' . $category['avatar']) }}"
-                                     width="80px"/>
-                            @endif
+                            {!! $category['description'] !!}
                         </td>
+
                         <td>
                             @php
                                 $statusText = '';
@@ -53,11 +55,11 @@
                                 <span class="fa fa-eye"></span>
                             </a> &nbsp;
                             <a href="{{ url('admin/category/update/' . $category['id']) }}">
-                                <span class="fa fa-pencil"></span>
+                                <i class="fas fa-edit"></i>
                             </a> &nbsp;
                             <a href="{{ url('admin/category/delete/' . $category['id']) }}"
-                               onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này hay không. Các bản ghi tin tức liên quan đến category này cũng sẽ bị xóa?');">
-                                <span class="fa fa-trash"></span>
+                               onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục này hay không. Các tin tức liên quan đến danh mục này cũng sẽ bị xóa?');">
+                                <i class="fas fa-trash-alt"></i>
                             </a> &nbsp;
                         </td>
                     </tr>

@@ -41,4 +41,18 @@ class Product extends Model
     public function product_category_Relation() {
         return $this->hasOne(ProductCategory::class, "id", "product_category_id");
     }
+
+
+
+
+    public function get_highlight_product()
+    {
+        $product = Product::where('highlight',1);
+        return $product;
+
+    }
+
+
+
+
 }

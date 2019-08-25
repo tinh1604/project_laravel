@@ -34,7 +34,7 @@ class AdminController extends BackendController
             if (!empty($admin)) {
                 session()->put('success', "Đăng nhập thành công");
                 session()->put('admin', $admin);
-                return redirect('/admin/product');
+                return redirect('/admin/news');
             }
             else {
                 session()->put('error', "Sai tài khoản hoặc mật khẩu");

@@ -33,8 +33,8 @@ class NewsController extends BackendController
   {
     //xử lý validate cho form
     $rules = [
-      'title' => ['required', "min:2", "unique:news", new CustomRule()],
-      'content' => ['required', new CustomRule()],
+      'title' => ['required', "min:2", "unique:news"],
+      'content' => ['required'],
       'avatar' => ['image', 'max:2024']
     ];
     $messages = [
@@ -61,13 +61,11 @@ class NewsController extends BackendController
     $newsModel = new News();
     $newsModel->title = $request->get('title');
     $newsModel->category_id = $request->get('category_id');
-    $newsModel->admin_id = session()->get("admin_id") ? session()->get("admin_id") : null;
     $newsModel->avatar = $avatarFileName;
     $newsModel->summary = $request->get('summary');
     $newsModel->content = $request->get("content");
     $newsModel->comment_total = $request->get('comment_total');
-    $newsModel->like_total = $request->get('like_total');
-    $newsModel->view = $request->get('view');
+    $newsModel->author = $request->get('author');
     $newsModel->status = $request->get('status');
     if ($newsModel->save()) {
       session()->put('success', "Thêm news thành công");
@@ -103,8 +101,8 @@ class NewsController extends BackendController
   {
     $news = News::getByIdRelation($id);
     $rules = [
-      'title' => ['required', "min:2", new CustomRule()],
-      'content' => ['required', new CustomRule()],
+      'title' => ['required', "min:2"],
+      'content' => ['required'],
       'avatar' => ['image', 'max:2024']
     ];
     $messages = [
@@ -132,13 +130,11 @@ class NewsController extends BackendController
     //lưu vào cơ sở dữ liệu, sử dụng Eloquent ORM
     $news->title = $request->get('title');
     $news->category_id = $request->get('category_id');
-    $news->admin_id = session()->get("admin_id") ? session()->get("admin_id") : null;
     $news->avatar = $avatarFileName;
     $news->summary = $request->get('summary');
     $news->content = $request->get("content");
     $news->comment_total = $request->get('comment_total');
-    $news->like_total = $request->get('like_total');
-    $news->view = $request->get('view');
+    $news->author = $request->get('author');
     $news->status = $request->get('status');
     if ($news->save()) {
       session()->put('success', "Update news thành công");

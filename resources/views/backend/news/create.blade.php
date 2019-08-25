@@ -1,5 +1,5 @@
 @extends('backend.layouts.main')
-@section('page_title', 'Create')
+@section('page_title', 'Thêm mới tin')
 @section('title')
     Thêm mới news
 @endsection()
@@ -9,12 +9,12 @@
         <form method="POST" action="{{ url('/admin/news/store') }}" enctype="multipart/form-data">
             <input type="hidden" name="_token" id="csrf-token" value="{{ csrf_token() }}"/>
             <div class="form-group">
-                <label>Title</label>
+                <label>Tên bài</label>
                 <input type="text" name="title" value="{{ old('title') }}"
                        class="form-control"/>
             </div>
             <div class="form-group">
-                <label>Category</label>
+                <label>Danh mục tin</label>
                 <select name="category_id" class="form-control">
                     @foreach($categories as $category)
                         @php
@@ -28,25 +28,24 @@
             </div>
             <div class="form-group">
                 <label>
-                    Upload ảnh đại diện
-                    (File dạng ảnh, dung lượng upload không vượt quá 2Mb)
+                    Ảnh
                 </label>
                 <input type="file" name="avatar" class="form-control">
             </div>
             <div class="form-group">
-                <label>Summary</label>
+                <label>Tóm lược</label>
                 <textarea name="summary" class="form-control">{{ old('summary') }}</textarea>
             </div>
             <div class="form-group">
-                <label>Content</label>
+                <label>Nội dung</label>
                 <textarea name="content" class="form-control" id="category-description">{{ old('content') }}</textarea>
             </div>
             <div class="form-group">
-                <label>Comment_total</label>
+                <label>Lượt comment</label>
                 <input type="number" class="form-control" name="comment_total" value="{{ old('comment_total') }}" min="0" />
             </div>
             <div class="form-group">
-                <label>Auth</label>
+                <label>Tác giả</label>
                 <input type="text" class="form-control" name="auth" value="{{ old('auth') }}" />
             </div>
             <div class="form-group">
@@ -62,23 +61,23 @@
                                 break;
                         }
                 @endphp
-                <label>Status</label>
+                <label>Trạng thái</label>
                 <select name="status" class="form-control">
                     <option
                             {{ $selectedStatusEnabled }} value="{{ \App\Models\News::STATUS_ENABLED }}">
-                        Tin nổi bật
+                        Enabled
                     </option>
                     <option
                             {{ $selectedStatusDisabled }} value="{{ \App\Models\News::STATUS_DISABLED }}">
-                        Tin thường
+                        Disable
                     </option>
                 </select>
             </div>
             <div class="form-group">
                 <input type="submit" name="submit"
-                       class="btn btn-success" value="Save"/>
+                       class="btn btn-success" value="Lưu"/>
                 <a href="{{ url('admin/news') }}"
-                   class="btn btn-secondary">Cancel</a>
+                   class="btn btn-secondary">Hủy</a>
             </div>
         </form>
     </section>

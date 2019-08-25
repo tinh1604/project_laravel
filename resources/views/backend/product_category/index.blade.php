@@ -16,7 +16,7 @@
                 <th>Miêu tả</th>
                 <th>Trang thái</th>
                 <th>Thời gian tạo</th>
-                <th>Chi tiết / sửa / xóa</th>
+                <th>Xem / sửa / xóa</th>
             </tr>
             @if(!empty($ProductCategory))
                 @foreach ($ProductCategory as $value)

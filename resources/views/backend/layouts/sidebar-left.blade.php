@@ -38,13 +38,13 @@
             </li>
             <ul id="list_news">
                 <li>
-                    <a href="index.php?controller=news&action=index">
+                    <a href="{{ url('/admin/news') }}">
                         <i class="fas fa-chevron-circle-right"></i> <span> Nội dung tin tức</span>
                         <span class="pull-right-container"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="index.php?controller=category&action=index">
+                    <a href="{{ url('/admin/category') }}">
                         <i class="fas fa-chevron-circle-right"></i> Danh mục tin tức</span>
                         <span class="pull-right-container"></span>
                     </a>
