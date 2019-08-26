@@ -6,7 +6,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('frontend/css/news.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('frontend/css//all.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}"/>
 </head>
 
 <body>

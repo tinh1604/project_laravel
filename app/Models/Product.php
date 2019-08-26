@@ -15,7 +15,7 @@ class Product extends Model
     //bỏ qua trường updated_at
     const UPDATED_AT = null;
 
-
+//Backend
     public function getAllPaginationBackend()
     {
         //join sử dụng cơ chế Eloquent ORM
@@ -43,15 +43,35 @@ class Product extends Model
     }
 
 
-
+//Frontend
 
     public function get_highlight_product()
     {
-        $product = Product::where('highlight',1);
+        $product = Product::where('highlight',1)->get();
         return $product;
 
     }
+    public function get_breakfast_food()
+    {
+        $product = Product::where('product_category_id',1)->get();
+        return $product;
+    }
 
+    public function get_lunch_food()
+    {
+        $product = Product::where('product_category_id',2)->get();
+        return $product;
+    }
+    public function get_drink()
+    {
+        $product = Product::where('product_category_id',3)->get();
+        return $product;
+    }
+    public function get_booze()
+    {
+        $product = Product::where('product_category_id',4)->get();
+        return $product;
+    }
 
 
 

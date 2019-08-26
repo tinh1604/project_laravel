@@ -17,14 +17,14 @@
                                     <img id="img2" src="{{ asset('frontend/imgs/img12.jpg') }}"/>
                                 </div>
                                 <div class="col-md-10 col-12">
-                                    <a id="content9" href="GioiThieu.html">
+                                    <a id="content9" href="">
                                         Nằm ở ngay khu đô thị sầm uất Himlam, nhưng Victoria Coffee vẫn giữ nguyên những
                                         giá trị của một
                                         quán cà phê yên bình, chốn nghỉ ngơi cho những tâm hồn cần lắm một ngày lánh xa
                                         mệt mỏi. Ngay từ
                                         cái tên cũng chất chứa nét nhẹ nhàng, thanh tao...
                                     </a>
-                                    <a id="content17" href="<?php echo 'gioi-thieu'?>">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
+                                    <a id="content17" href="">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -38,34 +38,27 @@
                         <div class="container">
 
                             <div class="row">
-                                <?php if (!empty($product)): ?>
-                                <?php foreach ($product as $value):
-                                $alias = Helper::alias($value['name']);
-                                $id = $value['id'];
-                                $urlProduct = "san-pham/$alias/$id";
-                                ?>
+                                @if (!empty($product))
+                                @foreach ($product as $value)
                                 <div class="col-md-3 col-12">
-                                    <div class="block9" class="row">
-                                        <a href="" class="hvr-grow"> <img class="img6" src="../backend/assets/uploads/<?php echo $value['img'] ?>"/>
+                                    <div class="block8" class="row">
+                                        <a href="" class="hvr-grow"> <img class="img6" src="{{ asset('uploads/' . $value['img']) }}"/>
                                         </a>
                                         <a class="content12"
-                                           href="<?php echo $urlProduct ?>"><?php echo $value['name'] ?></a>
-                                        <p class="content14"><?php echo number_format($value['price'],0,',','.').' VNĐ' ?></p>
-                                        <a href="<?php echo $urlProduct ?>">
-                                            <button class="content15"><i class="fas fa-utensils"></i>Chọn món</button>
+                                           href="">{{$value['name']}}</a>
+                                        <p class="content14">{{number_format($value['price'],0,',','.').' VNĐ'}}</p>
+                                        <a href="">
+                                            <button class="content15" ><i class="fas fa-utensils"></i>&nbsp Chọn món</button>
                                         </a>
                                     </div>
                                 </div>
-                                <?php endforeach; ?>
-                                <?php endif; ?>
+                                @endforeach
+                                @endif
 
                             </div>
 
-
                         </div>
-                        <?php
-                        //hiển thị phân trang đã có được từ controller
-                        ?>
+
                     </div> <br/>
                 </div>
                 @include('frontend.layouts.sidebar-right')

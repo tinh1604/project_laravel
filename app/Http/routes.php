@@ -110,4 +110,14 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 //frontend
-Route::get('/', 'Frontend\HomeController@index');
+Route::get('index', 'Frontend\HomeController@index');
+//chi tiết product
+Route::get('detail', 'Frontend\ProductController@detail');
+//món ăn sáng
+Route::get('breakfast', 'Frontend\ProductController@breakfast_food');
+//món ăn chính
+Route::get('lunch', 'Frontend\ProductController@lunch_food');
+//đồ uống
+Route::get('drink', 'Frontend\ProductController@drink');
+//rượu
+Route::get('booze', 'Frontend\ProductController@booze');

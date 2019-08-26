@@ -38,14 +38,14 @@
 
         <img id="img1" src="{{ asset('frontend/imgs/logo3.jpg') }}"/>
         <ul id="menu2">
-            <li><a href="<?php echo 'trang-chu' ?>" class="hvr-float-shadow">Trang chủ</a></li>
+            <li><a href="{{ url('index') }}" class="hvr-float-shadow">Trang chủ</a></li>
             <li><a href="<?php echo 'gioi-thieu' ?>" class="hvr-float-shadow">Giới thiệu</a></li>
             <li id="menu5" onclick="myfunction()"><a class="hvr-float-shadow">Thực đơn <i class="fas fa-sort-down"> </i></a>
                 <ul id="submenu">
-                    <li><a href="diem-tam-sang">Điểm tâm sáng</a></li>
-                    <li><a href="mon-chinh">Món chính</a></li>
-                    <li><a href="thuc-uong">Thức uống</a></li>
-                    <li><a href="ruou">Rượu</a></li>
+                    <li><a href="breakfast">Điểm tâm sáng</a></li>
+                    <li><a href="lunch">Món chính</a></li>
+                    <li><a href="drink">Thức uống</a></li>
+                    <li><a href="booze">Rượu</a></li>
                 </ul>
             </li>
             <li><a href="<?php echo 'dich-vu' ?>" class="hvr-float-shadow">Dịch vụ</a></li>
