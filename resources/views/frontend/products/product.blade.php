@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title','chi tiết sản phẩm')
+@section('title','Thực đơn')
 @section('content')
     <!--Main container start -->
 
@@ -62,11 +62,10 @@
 
                                 <div class="col-md-3 col-12">
                                     <div class="block9" class="row">
-                                        <a href="" class="hvr-grow"> <img class="img6"
-                                                                                                   src="{{ asset('uploads/' . $value['img']) }}"/>
+                                        <a href="" class="hvr-grow"> <img class="img6" src="{{ asset('uploads/' . $value['img']) }}"/>
                                         </a>
                                         <a class="content12"
-                                           href=""><?php echo $value['name'] ?></a>
+                                           href="">{{$value['name']}}</a>
                                         <p class="content14">{{number_format($value['price'],0,',','.').' VNĐ'}}</p>
                                         <a href="">
                                             <button class="content15"><i class="fas fa-utensils"></i>Chọn món</button>
@@ -84,9 +83,13 @@
                     <br/>
                 </div>
 
-                @include('frontend.layouts.sidebar-right')
 
+                @include('frontend.layouts.sidebar-right')
+                {{ $product->links() }}
             </div>
+
+
         </div>
+
     </div>
 @endsection()

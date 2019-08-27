@@ -51,28 +51,31 @@ class Product extends Model
         return $product;
 
     }
+
     public function get_breakfast_food()
     {
-        $product = Product::where('product_category_id',1)->get();
+//        $product = Product::where('product_category_id',1)->paginate(12);
+//        return $product;
+        $product = Product::with(['product_category_Relation' => function ($product_category) {
+            $product_category->where('product_category.name', 'Điểm tâm sáng');
+        }])->get();
         return $product;
     }
 
     public function get_lunch_food()
     {
-        $product = Product::where('product_category_id',2)->get();
+        $product = Product::where('product_category_id',2)->paginate(12);
         return $product;
     }
     public function get_drink()
     {
-        $product = Product::where('product_category_id',3)->get();
+        $product = Product::where('product_category_id',3)->paginate(12);
         return $product;
     }
     public function get_booze()
     {
-        $product = Product::where('product_category_id',4)->get();
+        $product = Product::where('product_category_id',4)->paginate(12);
         return $product;
     }
-
-
 
 }
