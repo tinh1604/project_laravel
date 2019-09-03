@@ -4,10 +4,8 @@
     <div id="header" style="background: none">
         <!--    <div id="header">-->
         <ul id="menu1">
-            <li style="<?php echo isset($_SESSION['user']) ? 'display: none' : '' ?>"><a href="dang-nhap"
-                                                                                         class="hvr-shrink">Đăng
-                    nhập</a></li>
-            <li style="<?php echo isset($_SESSION['user']) ? 'display: none' : '' ?>"><a href="dang-ki" class="hvr-shrink">Đăng kí</a></li>
+            <li style="<?php echo isset($_SESSION['user']) ? 'display: none' : '' ?>"><a href="{{url('login')}}" class="hvr-shrink">Đăng nhập</a></li>
+            <li style="<?php echo isset($_SESSION['user']) ? 'display: none' : '' ?>"><a href="{{url('create_account')}}" class="hvr-shrink">Đăng kí</a></li>
             <?php if (isset($_SESSION['user'])) : ?>
                 <ul class="user_login" >
                     <li>
@@ -36,21 +34,26 @@
         </ul>
 
 
-        <img id="img1" src="{{ asset('frontend/imgs/logo3.jpg') }}"/>
+        <img id="img1" src="{{ asset('frontend/imgs/logo3.jpg') }}"/> <br/>
+        <p id="navbar">
+            <i class="fas fa-bars" ></i>
+        </p>
+        <div id="menu_2">
         <ul id="menu2">
-            <li><a href="{{''}}" class="hvr-float-shadow">Trang chủ</a></li>
-            <li><a href="gioi-thieu" class="hvr-float-shadow">Giới thiệu</a></li>
-            <li id="menu5" onclick="myfunction()"><a class="hvr-float-shadow">Thực đơn <i class="fas fa-sort-down"> </i></a>
-                <ul id="submenu">
-                    <li><a href="breakfast">Điểm tâm sáng</a></li>
-                    <li><a href="lunch">Món chính</a></li>
-                    <li><a href="drink">Thức uống</a></li>
-                    <li><a href="booze">Rượu</a></li>
-                </ul>
-            </li>
-            <li><a href="dich-vu" class="hvr-float-shadow">Dịch vụ</a></li>
-            <li><a href="lien-he" class="hvr-float-shadow">Liên hệ</a></li>
+                <li><a href="{{'index'}}" class="hvr-float-shadow">Trang chủ</a></li>
+                <li><a href="gioi-thieu" class="hvr-float-shadow">Giới thiệu</a></li>
+                <li id="menu5" onclick="myfunction()"><a class="hvr-float-shadow">Thực đơn <i class="fas fa-sort-down"> </i></a>
+                    <ul id="submenu">
+                        <li><a href="breakfast">Điểm tâm sáng</a></li>
+                        <li><a href="lunch">Món chính</a></li>
+                        <li><a href="drink">Thức uống</a></li>
+                        <li><a href="booze">Rượu</a></li>
+                    </ul>
+                </li>
+                <li><a href="dich-vu" class="hvr-float-shadow">Dịch vụ</a></li>
+                <li><a href="lien-he" class="hvr-float-shadow">Liên hệ</a></li>
         </ul>
+        </div>
         <div id="menu4" class="container">
             <div class="row">
                 <div class="col-md-6 col-12">

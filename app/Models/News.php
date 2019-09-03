@@ -51,22 +51,19 @@ class News extends Model
 
     public function introduction()
     {
-        $news = News::where('category_id', 7)->get();
+
+        $news = News::whereHas('categoriesRelation', function ($category) {
+            $category->where('categories.name', 'Giới thiệu');
+        })->get();
         return $news;
     }
-
 
 
     public function service()
     {
-        $news = News::where('category_id', 8)->get();
+        $news = News::whereHas('categoriesRelation', function ($category) {
+            $category->where('categories.name', 'Dịch vụ');
+        })->get();
         return $news;
     }
-//    public function service()
-//    {
-//        $news = News::with(['categoriesRelation' => function ($category) {
-//            $category->where('categories.name', 'Dịch vụ');
-//        }])->get();
-//        return $news;
-//    }
 }

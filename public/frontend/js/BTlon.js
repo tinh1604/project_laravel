@@ -1,8 +1,8 @@
 
 // cách 1: sử dụng jquery
-// $("#menu5").click(function() {
-//     $("#submenu").toggle();
-// });
+$("#navbar").click(function() {
+    $("#menu2").toggle();
+});
 
 // cách 2: sử dụng javascrip
 function myfunction() {

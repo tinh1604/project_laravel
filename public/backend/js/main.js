@@ -4,6 +4,11 @@ $(document).ready(function () {
         filebrowserUploadUrl: 'assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
     } );
 
+    CKEDITOR.replace( 'category-description', {
+        filebrowserBrowseUrl: 'assets/ckfinder/ckfinder.html',
+        filebrowserUploadUrl: 'assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+    } );
+
     $("#menu_news").click(function() {
         $("#list_news").toggle();
     });

@@ -36,3 +36,6 @@
     background: #1a2226;
     color: white;
 }
+.main-header .sidebar-toggle:before {
+   display: none;
+}

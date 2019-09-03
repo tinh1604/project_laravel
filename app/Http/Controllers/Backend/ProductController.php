@@ -16,8 +16,14 @@ class ProductController extends BackendController
         $ProductModel = new Product();
         $product = $ProductModel->getAllPaginationBackend();
 
+        //lấy thông tin danh mục cho phần search
+        $product_category_model = new ProductCategory();
+        $product_category = $product_category_model->getAllPaginationBackend();
+
+
         return view('backend/product/index', [
-            'product' => $product
+            'product' => $product,
+            'product_category' => $product_category
         ]);
     }
 
@@ -53,8 +59,7 @@ class ProductController extends BackendController
             $imgFileName = time().'-' . $img->getClientOriginalName();
             $img->move(public_path('uploads'), $imgFileName);
         }
-//        echo'<pre>';
-//        print_r($request->all());die;
+
         //lưu vào cơ sở dữ liệu, sử dụng Eloquent ORM
         $productModel = new Product();
         $productModel->name = $request->get('name');

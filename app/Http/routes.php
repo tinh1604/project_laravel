@@ -59,7 +59,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('roles/delete/{id}', 'Backend\RoleController@delete');
 
     //route liệt kê danh admin
-    Route::get('index', 'Backend\AdminController@index');
+    Route::get('admins', 'Backend\AdminController@index');
     //route thêm admin
     Route::get('admins/create', 'Backend\AdminController@create');
     //route xử lý submit form khi thêm mới admin
@@ -110,9 +110,9 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 //frontend
-Route::get('', 'Frontend\HomeController@index');
+Route::get('index', 'Frontend\HomeController@index');
 //chi tiết product
-Route::get('detail', 'Frontend\ProductController@detail');
+Route::get('product/detail/{id}', 'Frontend\ProductController@detail');
 //món ăn sáng
 Route::get('breakfast', 'Frontend\ProductController@breakfast_food');
 //món ăn chính
@@ -125,3 +125,8 @@ Route::get('booze', 'Frontend\ProductController@booze');
 Route::get('gioi-thieu', 'Frontend\NewsController@introduction');
 // dịch vụ
 Route::get('dich-vu', 'Frontend\NewsController@service');
+// login
+Route::get('login', 'Frontend\HomeController@login');
+// registration
+Route::get('create_account', 'Frontend\UserController@create');
+Route::post('registration', 'Frontend\UserController@registration');

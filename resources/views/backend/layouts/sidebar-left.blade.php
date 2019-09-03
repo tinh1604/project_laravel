@@ -17,13 +17,13 @@
             @if(session()->get('admin.role_id') == 1)
 
             <li>
-                <a href="{{ url('/admin/index') }}">
+                <a href="{{url('admin/admins')}}">
                     <i class="fas fa-user-shield"></i> <span> Quản lý Admin</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>
             <li >
-                <a href="roles">
+                <a href="{{url('admin/roles')}}">
                     <i class="fas fa-users-cog"></i> <span id="category"> Quản lý quyền</span>
                     <span class="pull-right-container"></span>
                 </a>

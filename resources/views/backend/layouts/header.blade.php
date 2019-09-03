@@ -11,7 +11,7 @@
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
-{{--            <i class="fas fa-bars"></i>--}}
+            <i class="fas fa-bars"></i>
         </a>
 
         <div class="navbar-custom-menu">
@@ -35,11 +35,11 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href=""
+                                <a href="{{url('admin/admins/detail')}}/{{session()->get('admin.id')}}"
                                    class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="logout" class="btn btn-default btn-flat">Sign
+                                <a href="{{url('admin/logout')}}" class="btn btn-default btn-flat">Sign
                                     out</a>
                             </div>
                         </li>

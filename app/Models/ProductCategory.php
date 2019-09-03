@@ -18,4 +18,5 @@ class ProductCategory extends Model
         return $product_category;
     }
 
+
 }

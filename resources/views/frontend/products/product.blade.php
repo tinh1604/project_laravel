@@ -1,5 +1,7 @@
 @extends('frontend.layouts.main')
-@section('title','Thực đơn')
+@section('title')
+    {{$ProductCategory}}
+@endsection()
 @section('content')
     <!--Main container start -->
 
@@ -52,22 +54,21 @@
                 <div class="col-md-10 col-12">
 
                     <div id="main2">
-                        <p style="display: block; margin:  20px auto" class="content10"></p>
+                        <p style="display: block; margin:  20px auto" class="content10">{{$ProductCategory}}</p>
 
                         <div class="container">
 
                             <div class="row">
                                @if (!empty($product))
                                 @foreach ($product as $value)
-
                                 <div class="col-md-3 col-12">
                                     <div class="block9" class="row">
-                                        <a href="" class="hvr-grow"> <img class="img6" src="{{ asset('uploads/' . $value['img']) }}"/>
+                                        <a href="{{ url('product/detail/' . $value['id']) }}" class="hvr-grow"> <img class="img6" src="{{ asset('uploads/' . $value['img']) }}"/>
                                         </a>
                                         <a class="content12"
-                                           href="">{{$value['name']}}</a>
+                                           href="{{ url('product/detail/' . $value['id']) }}">{{$value['name']}}</a>
                                         <p class="content14">{{number_format($value['price'],0,',','.').' VNĐ'}}</p>
-                                        <a href="">
+                                        <a href="{{ url('product/detail/' . $value['id']) }}">
                                             <button class="content15"><i class="fas fa-utensils"></i>Chọn món</button>
                                         </a>
                                     </div>

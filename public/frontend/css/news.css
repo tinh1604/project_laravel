@@ -18,7 +18,13 @@ content19* {
 #block1 {
     background: wheat;
 }
-
+#navbar{
+    color: white;
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 90%;
+    display: none;
+}
 #header {
     margin: 0 auto;
     width: 90%;
@@ -214,6 +220,7 @@ a:link {
     font-size: 30px;
     font-weight: bold;
     padding-top: 10px;
+    padding-left: 5px;
     font-family: UTM Wedding KT;
     display: block;
 }
@@ -353,8 +360,9 @@ a:link {
 /* Shrink */
 .hvr-shrink {
     font-family: sans-serif;
-    font-size: 11px;
-    background: white;
+    font-size: 10px;
+    background: bisque;
+    text-align: center;
 
     color: red;
     border-radius: 15px;
@@ -371,7 +379,7 @@ a:link {
     background: #cc0f06;
 
     font-weight: bold;
-    font-size: 12px;
+    font-size: 10px;
     color: white;
     transform: scale(0.9);
 }
@@ -1043,9 +1051,20 @@ ul.pagination .page_info{
 
 
 
-@media(max-width: 550px){
+@media(max-width: 475px){
+    #menu_2{
+        min-height: 250px;
+    }
+    #dangki{
+        width: 100%;
+    }
     #menu2 {
        padding-left: 0;
+        background: none;
+        margin-top: 80px;
+        margin-left: 25%;
+        display: none;
+        position: absolute;
     }
     #menu2 li {
     display: block;
@@ -1154,6 +1173,7 @@ ul.pagination .page_info{
     }
     #block1{
         width: 100%;
+        background: #faf4dc;
     }
     #main{
         width: 100%;
@@ -1178,7 +1198,16 @@ ul.pagination .page_info{
         margin: 0;
     }
     #menu1{
-        margin-left: 75%;
+        position: absolute;
+        margin-left: 60%;
     }
-
-}
+    #menu1 li{
+        display: block;
+    }
+    #navbar {
+        display: block;
+    }
+    .hvr-shrink{
+        width: 75px;
+    }
+    }
